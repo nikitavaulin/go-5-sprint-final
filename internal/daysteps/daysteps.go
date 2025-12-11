@@ -48,6 +48,7 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 	return nil
 }
 
+// ActionInfo формирует строку с информацией о прогулке
 func (ds DaySteps) ActionInfo() (string, error) {
 	distance := spentenergy.Distance(ds.Steps, ds.Height)
 	spentCalories, err := spentenergy.WalkingSpentCalories(ds.Steps, ds.Weight, ds.Height, ds.Duration)
@@ -57,7 +58,7 @@ func (ds DaySteps) ActionInfo() (string, error) {
 	return actionInfoText(ds.Steps, distance, spentCalories), nil
 }
 
-// dayActionInfoText возвращает текст вывода информации для пользователя
+// actionInfoText возвращает текст вывода информации для пользователя
 func actionInfoText(stepsCount int, distance, spentCalories float64) string {
 	output := fmt.Sprintf(
 		"Количество шагов: %d.\nДистанция составила %.2f км.\nВы сожгли %.2f ккал.\n",
