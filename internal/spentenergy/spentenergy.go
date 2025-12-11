@@ -18,8 +18,7 @@ const (
 )
 
 var (
-	ErrValueLessZero       error = errors.New("should be more than 0") // значение элемента не может быть меньше либо равно нулю
-	ErrUnknownTrainingType error = errors.New("неизвестный тип тренировки")
+	ErrValueLessZero error = errors.New("should be more than 0") // значение элемента не может быть меньше либо равно нулю
 )
 
 // WalkingSpentCalories вычисляет количество затраченных калорий при ходьбе.
