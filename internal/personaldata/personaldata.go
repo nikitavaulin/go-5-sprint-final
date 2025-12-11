@@ -11,7 +11,7 @@ type Personal struct {
 }
 
 func (p Personal) String() string {
-	return fmt.Sprintf("Имя: %s\nВес: %.2f кг.\nРост: %.2f", p.Name, p.Weight, p.Height)
+	return fmt.Sprintf("Имя: %s\nВес: %.2f кг.\nРост: %.2f м.", p.Name, p.Weight, p.Height)
 }
 
 // Print выводит на печать персональные данные пользователя
