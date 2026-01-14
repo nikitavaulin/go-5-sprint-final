@@ -64,18 +64,24 @@ func Distance(steps int, height float64) float64 {
 
 // Валидирует параметры для вычисления затраченных калорий.
 func validateParamsSpentCalories(steps int, weight, height float64, duration time.Duration) error {
-	var err error
+	var errs []error
+
 	if steps <= 0 {
-		errors.Join(err, fmt.Errorf("steps value wrong, %w", ErrValueLessZero))
+		errs = append(errs, fmt.Errorf("steps value wrong, %w", ErrValueLessZero))
 	}
 	if weight <= 0 {
-		errors.Join(err, fmt.Errorf("weight value wrong, %w", ErrValueLessZero))
+		errs = append(errs, fmt.Errorf("weight value wrong, %w", ErrValueLessZero))
 	}
 	if height <= 0 {
-		errors.Join(err, fmt.Errorf("height value wrong, %w", ErrValueLessZero))
+		errs = append(errs, fmt.Errorf("height value wrong, %w", ErrValueLessZero))
 	}
 	if duration <= 0 {
-		errors.Join(err, fmt.Errorf("duration value wrong, %w", ErrValueLessZero))
+		errs = append(errs, fmt.Errorf("duration value wrong, %w", ErrValueLessZero))
 	}
-	return err
+
+	if len(errs) == 0 {
+		return nil
+	}
+
+	return errors.Join(errs...)
 }
