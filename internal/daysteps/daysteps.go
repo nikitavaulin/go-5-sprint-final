@@ -27,20 +27,20 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 
 	stepsCount, err := strconv.Atoi(splitData[0])
 	if err != nil {
-		return fmt.Errorf("did not parse stepsCount: %w", err)
+		return fmt.Errorf("did not parse: %w", err)
 	}
 
 	if stepsCount <= 0 {
-		return fmt.Errorf("stepsCount should be more than 0, got: %d", stepsCount)
+		return fmt.Errorf("should be more than 0, got: %d", stepsCount)
 	}
 
 	walkTime, err := time.ParseDuration(splitData[1])
 	if err != nil {
-		return fmt.Errorf("did not parse walkTime: %w", err)
+		return fmt.Errorf("did not parse: %w", err)
 	}
 
 	if walkTime <= 0 {
-		return fmt.Errorf("walkTime should be more than 0, got: %d", walkTime)
+		return fmt.Errorf("should be more than 0, got: %d", walkTime)
 	}
 
 	ds.Duration = walkTime
